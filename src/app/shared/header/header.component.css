@@ -1,0 +1,9 @@
+:host {
+    display: flex;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-bottom: 1px solid #e9ecef;
+    justify-content: space-between;
+    align-items: center;
+    
+}

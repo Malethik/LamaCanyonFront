@@ -1,0 +1,30 @@
+
+@for (item of items; track $index) {<mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>{{ item.name }}</mat-card-title>
+      <mat-card-subtitle>{{ item.supplier.name || 'Non disponibile' }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ item.price }} €</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>Disponibilità: {{item.quantity}}</p>
+      <p>{{item.description}}</p>
+      <p>Data Inserimento: {{formatDate(item.createdAt)}}</p>
+      <p>Data ultima modifica: {{formatDate(item.updatedAt)}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="openDialog(item,'300ms','300ms')">Delete</button>
+      <button mat-button>Modifica</button>
+    </mat-card-actions>
+</mat-card>}
+
+
+
+
+<!-- Nuovo card da implementare nella logica -->
+
+
+  <!-- Defoult se non ci sono oggetti -->
+<div *ngIf="items.length === 0">
+    No items found.
+  </div>
