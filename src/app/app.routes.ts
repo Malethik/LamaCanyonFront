@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { CostumersComponent } from './view/costumers/components/costumers/costumers.component';
-import { SupplierComponent } from './view/supplier/supplier.component';
+import { SupplierComponent } from './view/supplier/components/supplier/supplier.component';
 import { OrderComponent } from './view/order/order.component';
 import { ItemComponent } from './view/item/component/items/item.component';
 

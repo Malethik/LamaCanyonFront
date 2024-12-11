@@ -1,8 +1,8 @@
 <div class="control-panel">
   <button mat-raised-button color="primary" (click)="openCreateDialog()">
-    Aggiungi Cliente
+    Aggiungi fornitore
   </button>
-  <span> CLIENTI </span>
+  <span> FORNITORI </span>
   <!-- filtro da implementare -->
   <div>
     <input type="text" placeholder="Cerca per nome" #filterInput />
@@ -42,7 +42,7 @@
   <ng-container matColumnDef="createdAt">
     <th mat-header-cell *matHeaderCellDef>Created At</th>
     <td mat-cell *matCellDef="let element">
-      {{ formatDate(element.createdAt) }}
+      {{ formatDate(element.items) }}
     </td>
   </ng-container>
 
@@ -58,7 +58,7 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
 
-@if (costumers.length === 0) {
-<div>Nessun cliente trovato....</div>
+@if (supplier.length === 0) {
+<div>Nessun fornitore trovato....</div>
 }
 <app-footer></app-footer>
