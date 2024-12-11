@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import {
   MAT_DIALOG_DATA,
@@ -13,11 +8,11 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
-import { ItemService } from '../../core/service/item/item.service';
-import { Item } from '../../core/model/item';
+import { Item } from '../../../../core/model/item';
+import { ItemService } from '../../service/item.service';
 
 @Component({
-  selector: 'app-dialog-animations',
+  selector: 'app-item-dialog',
   standalone: true,
   imports: [
     MatButtonModule,
@@ -26,8 +21,8 @@ import { Item } from '../../core/model/item';
     MatDialogTitle,
     MatDialogContent,
   ],
-  templateUrl: 'delete-dialog.component.html',
-  styleUrl: 'delete-dialog.component.css',
+  templateUrl: 'del-item-dialog.component.html',
+  styleUrl: 'del-item-dialog.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeleteDialogComponent {
@@ -37,16 +32,11 @@ export class DeleteDialogComponent {
     private itemService: ItemService,
     @Inject(MAT_DIALOG_DATA) public data: { item: Item }
   ) {}
-  /*  readonly dialogRef = inject(MatDialogRef<DeleteDialogComponent>);
-  readonly itemService = inject(ItemService);
-  readonly dialogData = inject(MAT_DIALOG_DATA); */
 
   deleteItem(item: Item) {
-    this.itemService
-      .delete('item', this.data.item.id)
-      .subscribe((data) => {
-        console.log(data);
-      });
+    this.itemService.delete('item', this.data.item.id).subscribe((data) => {
+      console.log(data);
+    });
     console.log(item);
   }
 }

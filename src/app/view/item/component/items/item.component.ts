@@ -1,16 +1,19 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ItemService } from '../../core/service/item/item.service';
-import { Item } from '../../core/model/item';
+
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { DeleteDialogComponent } from '../../shared/delete-dialog/delete-dialog';
+
 import { MatDialog } from '@angular/material/dialog';
+import { FooterComponent } from '../../../../shared/footer/footer.component';
+import { ItemService } from '../../service/item.service';
+import { Item } from '../../../../core/model/item';
+import { DeleteDialogComponent } from '../del-dialog/del-item-dialog';
 
 @Component({
   selector: 'app-item',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, FooterComponent],
   templateUrl: './item.component.html',
   styleUrl: './item.component.css',
 })

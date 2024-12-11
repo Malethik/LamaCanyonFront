@@ -1,13 +1,16 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { RepoService } from '../repo/repo.service';
+import { inject, Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs';
-import { Costumers } from '../../model/costumers';
+import { Costumers } from '../../../core/model/costumers';
+import { RepoService } from '../../../core/service/repo/repo.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CostumersService extends RepoService {
+  endpoint: string = 'costumers';
+  repoService = inject(RepoService);
   constructor(http: HttpClient) {
     super(http);
   }
@@ -19,16 +22,17 @@ export class CostumersService extends RepoService {
     return super.getOne(endpoint, id);
   }
   override create(endpoint: string, body: Costumers): Observable<Costumers> {
-    return super.create(endpoint, body);
+    return this.repoService.create(endpoint, body);
   }
   override update(
     endpoint: string,
     id: number,
     body: Costumers
   ): Observable<Costumers> {
-    return super.update(endpoint, id, body);
+    return this.repoService.update(endpoint, id, body);
   }
+
   override delete(endpoint: string, id: number): Observable<Costumers> {
-    return super.delete(endpoint, id);
+    return this.repoService.delete(endpoint, id);
   }
 }

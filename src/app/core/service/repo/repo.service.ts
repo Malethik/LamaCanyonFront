@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class RepoService {
     return this.http.post<any>(this.url + '/' + endpoint, body);
   }
   update(endpoint: string, id: number, body: any): Observable<any> {
-    return this.http.put<any>(this.url + '/' + endpoint + '/' + id, body);
+    return this.http.patch<any>(this.url + '/' + endpoint + '/' + id, body);
   }
   delete(endpoint: string, id: number): Observable<any> {
     return this.http.delete<any>(this.url + '/' + endpoint + '/' + id);
