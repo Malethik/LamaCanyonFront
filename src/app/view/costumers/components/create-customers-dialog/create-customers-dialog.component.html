@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Edit Costumer</h1>
+<h1 mat-dialog-title>Aggiungi Cliente</h1>
 <div mat-dialog-content>
   <form [formGroup]="createForm">
     <mat-form-field>
@@ -23,7 +23,9 @@
     </mat-form-field>
   </form>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button (click)="onSave()" cdkFocusInitial>Save</button>
+<div mat-dialog-actions class="actions">
+  <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()" cdkFocusInitial>
+    Save
+  </button>
 </div>

@@ -77,17 +77,17 @@ export class SupplierComponent implements OnInit {
     });
   }
 
-  openEditDialog(costumer: Supplier): void {
+  openEditDialog(supplier: Supplier): void {
     this.dialog.open(EditSupplierDialogComponent, {
       width: '250px',
-      data: costumer,
+      data: supplier,
     });
   }
 
-  openDialog(costumer: Supplier): void {
+  openDialog(supplier: Supplier): void {
     this.dialog.open(DeleteSupplierDialogComponent, {
       width: '250px',
-      data: { costumer: costumer },
+      data: { supplier: supplier },
     });
   }
 }

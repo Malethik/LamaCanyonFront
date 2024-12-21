@@ -1,4 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+:root {
+  --primary-color: #3f51b5; /* Colore primario dal tema deeppurple-amber */
+  --accent-color: #6d42ba; /* Colore di accento dal tema deeppurple-amber */
+}
+
+.custom-primary-background {
+  background-color: var(--primary-color);
+}
+
+.custom-accent-text {
+  color: var(--accent-color);
+}

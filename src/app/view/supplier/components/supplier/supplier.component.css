@@ -7,3 +7,15 @@
   table {
       width: 100%;
     }
+    .filter{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .actions{
+      display: flex;
+      gap: 10px;
+    }
+    .actions button{
+      padding: 5px 10px;
+    }
