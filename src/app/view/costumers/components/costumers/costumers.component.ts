@@ -16,7 +16,6 @@ import { FooterComponent } from '../../../../shared/footer/footer.component';
 
 import { EditCostumerDialogComponent } from '../edit-costumer-dialog/edit-costumer-dialog.component';
 import { CreateCustomersDialogComponent } from '../create-customers-dialog/create-customers-dialog.component';
-import { GenericModalComponent } from '../../../../shared/modal/create-modal/create-modal.component';
 
 @Component({
   selector: 'app-costumers',
@@ -94,10 +93,8 @@ export class CostumersComponent implements OnInit {
     });
   }
 
-
-
   // prova
-  openCreateDialog2() {
+  /*  openCreateDialog2() {
     const dialogRef = this.dialog.open(GenericModalComponent, {
       data: {
         modalTitle: 'Aggiungi Cliente',
@@ -153,6 +150,5 @@ export class CostumersComponent implements OnInit {
         this.costumers = this.costumers.filter((c) => c.id !== costumer.id);
       }
     });
-  }
-
+  } */
 }
