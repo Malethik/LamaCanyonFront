@@ -34,7 +34,7 @@ export class DeleteDialogComponent {
   ) {}
 
   deleteItem(item: Item) {
-    this.itemService.delete('item', this.data.item.id).subscribe((data) => {
+    this.itemService.delete(this.data.item.id).subscribe((data) => {
       console.log(data);
     });
     console.log(item);

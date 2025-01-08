@@ -34,10 +34,8 @@ export class DeleteDialogComponent {
   ) {}
 
   deleteItem() {
-    this.costumerService
-      .delete('costumers', this.data.costumer.id)
-      .subscribe((data) => {
-        console.log('Costumer deleted', data);
-      });
+    this.costumerService.delete(this.data.costumer.id).subscribe((data) => {
+      console.log('Costumer deleted', data);
+    });
   }
 }

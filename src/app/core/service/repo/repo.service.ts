@@ -1,27 +1,30 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class RepoService {
-  private url = 'https://lamaback-owg8.onrender.com';
-  constructor(private http: HttpClient) {}
+export class RepoService<T> {
+  /* private url = 'https://lamaback-owg8.onrender.com'; */
+  constructor(
+    private http: HttpClient,
+    @Inject('API_URL') private url: string
+  ) {}
 
-  getAll(endpoint: string): Observable<any[]> {
-    return this.http.get<any[]>(this.url + '/' + endpoint);
+  getAll(): Observable<T[]> {
+    return this.http.get<T[]>(this.url);
   }
-  getOne(endpoint: string, id: number): Observable<any> {
-    return this.http.get<any>(this.url + '/' + endpoint + '/' + id);
+  getOne(id: number): Observable<T> {
+    return this.http.get<any>(`${this.url}/${id}`);
   }
-  create(endpoint: string, body: any): Observable<any> {
-    return this.http.post<any>(this.url + '/' + endpoint, body);
+  create(body: T): Observable<T> {
+    return this.http.post<T>(`${this.url}`, body);
   }
-  update(endpoint: string, id: number, body: any): Observable<any> {
-    return this.http.patch<any>(this.url + '/' + endpoint + '/' + id, body);
+  update(id: number, body: T): Observable<any> {
+    return this.http.patch<T>(`${this.url}/${id}`, body);
   }
-  delete(endpoint: string, id: number): Observable<any> {
-    return this.http.delete<any>(this.url + '/' + endpoint + '/' + id);
+  delete(id: number): Observable<T> {
+    return this.http.delete<T>(`${this.url}/${id}`);
   }
 }

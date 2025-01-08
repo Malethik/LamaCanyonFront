@@ -70,6 +70,6 @@ export class CreateCustomersDialogComponent {
   createCostumer(costumer: Costumers): Observable<Costumers> {
     console.log('Edit costumer', costumer);
     const endpoint = 'costumers';
-    return this.costumersService.create(endpoint, costumer);
+    return this.costumersService.create(costumer);
   }
 }

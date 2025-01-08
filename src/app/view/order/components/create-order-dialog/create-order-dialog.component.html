@@ -1,1 +1,23 @@
-<p>create-order-dialog works!</p>
+<h1 mat-dialog-title>Aggiungi Cliente</h1>
+<div mat-dialog-content>
+  <form [formGroup]="createForm">
+    <mat-form-field>
+      <mat-label>Totale €</mat-label>
+      <input matInput formControlName="total" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Oggetti</mat-label>
+      <input matInput formControlName="item" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Cliente</mat-label>
+      <input matInput formControlName="costumers" />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="actions">
+  <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()" cdkFocusInitial>
+    Save
+  </button>
+</div>

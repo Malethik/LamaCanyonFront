@@ -47,7 +47,7 @@ export class EditCostumerDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.editForm = this.fb.group({
-      id: [data.id, ],
+      id: [data.id],
       name: [data.name, Validators.required],
       email: [data.email, [Validators.required, Validators.email]],
       phone: [data.phone, Validators.required],
@@ -69,7 +69,6 @@ export class EditCostumerDialogComponent {
   }
   editCostumer(costumer: Costumers): Observable<Costumers> {
     console.log('Edit costumer', costumer);
-    const endpoint = 'costumers';
-    return this.costumersService.update(endpoint, costumer.id, costumer);
+    return this.costumersService.update(costumer.id, costumer);
   }
 }

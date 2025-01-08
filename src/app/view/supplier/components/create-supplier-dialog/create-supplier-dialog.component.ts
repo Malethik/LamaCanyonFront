@@ -69,6 +69,6 @@ export class CreateSupplierDialogComponent {
   createCostumer(supplier: Supplier): Observable<Supplier> {
     console.log('Edit costumer', supplier);
     const endpoint = 'supplier';
-    return this.supplierService.create(endpoint, supplier);
+    return this.supplierService.create(supplier);
   }
 }
