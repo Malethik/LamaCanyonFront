@@ -7,11 +7,11 @@ import { Item } from '../../../core/model/item';
 @Injectable({
   providedIn: 'root',
 })
-export class ItemService extends RepoService {
+export class ItemService extends RepoService<Item> {
   constructor(http: HttpClient) {
-    super(http);
+    super(http, 'https://lamaback-owg8.onrender.com/item');
   }
-
+  /* 
   override getAll(): Observable<Item[]> {
     return super.getAll('item');
   }
@@ -26,5 +26,5 @@ export class ItemService extends RepoService {
   }
   override delete(endpoint: string, id: number): Observable<Item> {
     return super.delete(endpoint, id);
-  }
+  } */
 }

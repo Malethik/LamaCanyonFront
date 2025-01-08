@@ -68,7 +68,6 @@ export class EditSupplierDialogComponent {
   }
   editCostumer(supplier: Supplier): Observable<Supplier> {
     console.log('Edit costumer', supplier);
-    const endpoint = 'costumers';
-    return this.costumersService.update(endpoint, supplier.id, supplier);
+    return this.costumersService.update(supplier.id, supplier);
   }
 }

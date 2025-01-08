@@ -35,10 +35,8 @@ export class DeleteSupplierDialogComponent {
   }
 
   deleteItem() {
-    this.supplierService
-      .delete('supplier', this.data.supplier.id)
-      .subscribe((data) => {
-        console.log('Supplier deleted', data);
-      });
+    this.supplierService.delete(this.data.supplier.id).subscribe((data) => {
+      console.log('Supplier deleted', data);
+    });
   }
 }

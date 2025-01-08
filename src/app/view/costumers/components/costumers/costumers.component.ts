@@ -16,6 +16,7 @@ import { FooterComponent } from '../../../../shared/footer/footer.component';
 
 import { EditCostumerDialogComponent } from '../edit-costumer-dialog/edit-costumer-dialog.component';
 import { CreateCustomersDialogComponent } from '../create-customers-dialog/create-customers-dialog.component';
+import { GenericModalComponent } from '../../../../shared/modal/create-modal/create-modal.component';
 
 @Component({
   selector: 'app-costumers',
@@ -92,4 +93,66 @@ export class CostumersComponent implements OnInit {
       data: { costumer: costumer },
     });
   }
+
+
+
+  // prova
+  openCreateDialog2() {
+    const dialogRef = this.dialog.open(GenericModalComponent, {
+      data: {
+        modalTitle: 'Aggiungi Cliente',
+        action: 'create',
+        fields: [
+          { key: 'name', label: 'Nome', placeholder: 'Inserisci nome' },
+          { key: 'email', label: 'Email', type: 'email', placeholder: 'Inserisci email' },
+          { key: 'phone', label: 'Telefono', placeholder: 'Inserisci telefono' },
+        ],
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.costumers.push({ id: this.costumers.length + 1, ...result });
+      }
+    });
+  }
+
+  openEditDialog2(costumer: any) {
+    const dialogRef = this.dialog.open(GenericModalComponent, {
+      data: {
+        modalTitle: 'Modifica Cliente',
+        action: 'edit',
+        data: costumer,
+        fields: [
+          { key: 'name', label: 'Nome' },
+          { key: 'email', label: 'Email', type: 'email' },
+          { key: 'phone', label: 'Telefono' },
+        ],
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        const index = this.costumers.findIndex((c) => c.id === costumer.id);
+        this.costumers[index] = { ...costumer, ...result };
+      }
+    });
+  }
+
+  openDeleteDialog2(costumer: any) {
+    const dialogRef = this.dialog.open(GenericModalComponent, {
+      data: {
+        modalTitle: 'Elimina Cliente',
+        action: 'delete',
+        data: costumer,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.costumers = this.costumers.filter((c) => c.id !== costumer.id);
+      }
+    });
+  }
+
 }

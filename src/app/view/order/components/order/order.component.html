@@ -1,0 +1,90 @@
+<div class="control-panel">
+  <button mat-raised-button color="primary" (click)="openCreateDialog()">
+    Aggiungi ordine
+  </button>
+  <span> ORDINI </span>
+  <!-- filtro da implementare -->
+  <div class="filter">
+    <input type="text" placeholder="Cerca per nome" #filterInput />
+    <button
+      mat-raised-button
+      color="primary"
+      class="primary"
+      type="button"
+      (click)="resetFilter()"
+    >
+      Reset
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      class="primary"
+      type="button"
+      (click)="applyFilter()"
+    >
+      Cerca
+    </button>
+  </div>
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Nome</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <!-- Email Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+  </ng-container>
+  <!-- phone column -->
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef>Tel</th>
+    <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
+  </ng-container>
+  <!-- Address Column -->
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef>Indirizzo</th>
+    <td mat-cell *matCellDef="let element">{{ element.address }}</td>
+  </ng-container>
+  <!-- CreatedAt Column -->
+  <ng-container matColumnDef="createdAt">
+    <th mat-header-cell *matHeaderCellDef>Created At</th>
+    <td mat-cell *matCellDef="let element">
+      {{ formatDate(element.createdAt) }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Azioni</th>
+    <td mat-cell *matCellDef="let element">
+      <div class="actions">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="openEditDialog(element)"
+        >
+          Mod
+        </button>
+        <button mat-raised-button color="primary" (click)="openDialog(element)">
+          Canc
+        </button>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+@if (order.length === 0) {
+<div>Nessun ordine trovato....</div>
+}
+<app-footer></app-footer>

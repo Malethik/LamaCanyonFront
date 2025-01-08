@@ -9,5 +9,5 @@ export interface Costumers {
   address: string;
   createdAt: Date;
   updatedAt: Date;
-  Order: Order[];
+  order: Order[];
 }

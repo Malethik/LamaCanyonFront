@@ -8,14 +8,12 @@ import { RepoService } from '../../../core/service/repo/repo.service';
 @Injectable({
   providedIn: 'root',
 })
-export class CostumersService extends RepoService {
-  endpoint: string = 'costumers';
-  repoService = inject(RepoService);
+export class CostumersService extends RepoService<Costumers> {
   constructor(http: HttpClient) {
-    super(http);
+    super(http, 'https://lamaback-owg8.onrender.com/costumers');
   }
 
-  override getAll(): Observable<Costumers[]> {
+  /*  override getAll(): Observable<Costumers[]> {
     return super.getAll('costumers');
   }
   override getOne(endpoint: string, id: number): Observable<Costumers> {
@@ -34,5 +32,5 @@ export class CostumersService extends RepoService {
 
   override delete(endpoint: string, id: number): Observable<Costumers> {
     return this.repoService.delete(endpoint, id);
-  }
+  } */
 }

@@ -2,34 +2,34 @@ import { inject, Injectable } from '@angular/core';
 import { RepoService } from '../../../core/service/repo/repo.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Supplier } from '../../../core/model/supplier';
+import { Order } from '../../../core/model/order';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SupplierService extends RepoService<Supplier> {
+export class OrderService extends RepoService<Order> {
   constructor(http: HttpClient) {
-    super(http, 'https://lamaback-owg8.onrender.com/supplier');
+    super(http, 'https://lamaback-owg8.onrender.com/order');
   }
   /* 
-  override getAll(): Observable<Supplier[]> {
-    return super.getAll('supplier');
+  override getAll(): Observable<Order[]> {
+    return super.getAll('order');
   }
-  override getOne(endpoint: string, id: number): Observable<Supplier> {
+  override getOne(endpoint: string, id: number): Observable<Order> {
     return super.getOne(endpoint, id);
   }
-  override create(endpoint: string, body: Supplier): Observable<Supplier> {
+  override create(endpoint: string, body: Order): Observable<Order> {
     return this.repoService.create(endpoint, body);
   }
   override update(
     endpoint: string,
     id: number,
-    body: Supplier
-  ): Observable<Supplier> {
+    body: Order
+  ): Observable<Order> {
     return this.repoService.update(endpoint, id, body);
   }
 
-  override delete(endpoint: string, id: number): Observable<Supplier> {
+  override delete(endpoint: string, id: number): Observable<Order> {
     return this.repoService.delete(endpoint, id);
   } */
 }
